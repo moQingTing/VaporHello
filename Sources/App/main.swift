@@ -21,7 +21,7 @@ drop.get { req in
 drop.get("/name",":name") { req in
     if let name = req.parameters["name"]?.string{
         
-        let result = try mysqlPro.driver.mysql("select * from where username='" + name.string! + "';")
+        let result = try mysqlPro.driver.mysql("select * from users where username='" + name.string! + "';")
         let userinfo = result[0]
         return try JSON(node: userinfo)
     }else{
